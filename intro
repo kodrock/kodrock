@@ -1,0 +1,28 @@
+registered_users = {}  # create an empty dictionary to store registered users
+
+def register():
+    username = input("Enter a username: ")
+    fullname = input("Enter your full name: ")
+    password = input("Enter a password: ")
+    registered_users[username] = {'fullname': fullname, 'password': password}
+    print("Registration successful!")
+
+def login():
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    if username in registered_users and registered_users[username]['password'] == password:
+        print(f"Welcome, {registered_users[username]['fullname']}!")
+    else:
+        print("Invalid username or password.")
+
+while True:
+    choice = input("Enter 'r' to register, 'l' to login, or 'q' to quit: ")
+    if choice == 'r':
+        register()
+    elif choice == 'l':
+        login()
+    elif choice == 'q':
+        break
+    else:
+        print("Invalid choice. Try again.")
+
